@@ -8,7 +8,7 @@ df = load_weather()
 st.title("Interactive Exploratory View")
 st.write("Use interaction to validate and extend the story—focus on one weather type, then zoom into a time window.")
 
-st.altair_chart(chart_dashboard(df), use_container_width=True)
+st.altair_chart(chart_dashboard(both_seasons, wins_by_date), use_container_width=True)
 
 st.markdown("**Guided prompts:**")
 st.write("- Filter to one weather type (e.g., `sun`, `rain`)—does the temperature distribution shift?")
