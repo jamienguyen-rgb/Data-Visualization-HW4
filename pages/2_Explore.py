@@ -1,6 +1,6 @@
 import streamlit as st
-from io import load_data()
-from charts import dashboard
+from utils.io import load_data
+from charts.charts import dashboard
 
 st.set_page_config(page_title="Explore", layout="wide")
 df = load_data()
