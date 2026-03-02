@@ -15,7 +15,7 @@ def dashboard(points_df: pd.DataFrame, wins_df: pd.DataFrame) -> alt.Chart:
     click = alt.selection_point(fields=['team'])
 
     seasons_dotplot = (
-        alt.Chart(both_seasons).mark_circle().encode(
+        alt.Chart(points_df).mark_circle().encode(
             x='team:N',
             y='points:Q',
             color='season:N',
@@ -28,7 +28,7 @@ def dashboard(points_df: pd.DataFrame, wins_df: pd.DataFrame) -> alt.Chart:
         ).properties(title='Team Points by Season')
     )
     wins_line = (
-        alt.Chart(wins_by_date).transform_filter(
+        alt.Chart(wins_df).transform_filter(
             click
         ).mark_line().encode(
             x='week:O',
