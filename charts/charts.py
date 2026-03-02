@@ -78,7 +78,7 @@ def wins_line_promoted(df: pd.DataFrame) -> alt.Chart:
     return (
         alt.Chart(grouped_promoted).mark_line().encode(
             x='week:O',
-            y='average_cumulative_wins:Q',
+            y=alt.Y('average_cumulative_wins:Q', title = 'average cumulative wins'),
             color='group:N',
             tooltip=[
                 alt.Tooltip('average_cumulative_wins:Q', title = 'average cumulative wins')]
