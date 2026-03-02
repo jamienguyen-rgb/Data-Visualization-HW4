@@ -70,8 +70,8 @@ def wins_line_promoted(df: pd.DataFrame) -> alt.Chart:
     matches24 = df[df['season'] == '2024-2025'].copy()
     promoted_teams= ['Ipswich', 'Leicester', 'Southampton']
     promoted_df = df.copy() 
-    promoted_df['group'] = 'Not Relegated'
-    promoted_df.loc[promoted_df['team'].isin(promoted_teams), 'group'] = 'Relegated'
+    promoted_df['group'] = 'Not Promoted'
+    promoted_df.loc[promoted_df['team'].isin(promoted_teams), 'group'] = 'Promoted'
     promoted_df['cumulative wins'] = (promoted_df.groupby(['team'])['win'].cumsum())
     grouped_promoted = (promoted_df.groupby(
         ['group', 'week'], as_index=False).agg(average_cumulative_wins=('cumulative wins', 'mean')))
