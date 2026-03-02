@@ -1,5 +1,5 @@
 import streamlit as st
-from io import load_weather
+from io import load_data
 from charts import dashboard
 
 st.set_page_config(page_title="Explore", layout="wide")
