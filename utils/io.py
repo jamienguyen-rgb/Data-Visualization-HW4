@@ -3,8 +3,8 @@ import pandas as pd
 
 @st.cache_data
 def load_points() -> pd.DataFrame:
-    premier23 =  pd.read_csv('/Users/JamieNguyen/Desktop/data/PL-season-2324.csv')
-    premier24 =  pd.read_csv('/Users/JamieNguyen/Desktop/data/PL-season-2425.csv')
+    premier23 =  pd.read_csv('data/PL-season-2324.csv')
+    premier24 =  pd.read_csv('data/PL-season-2425.csv')
     
     home23 = premier23.copy()
     home23['team'] = home23['HomeTeam']
@@ -47,6 +47,8 @@ def load_points() -> pd.DataFrame:
 
 @st.cache_data
 def load_wins() -> pd.DataFrame:
+    premier23 =  pd.read_csv('data/PL-season-2324.csv')
+    premier24 =  pd.read_csv('data/PL-season-2425.csv')
     premier23['date'] = pd.to_datetime(premier23['Date'], format='%d/%m/%y')
     premier24['date'] = pd.to_datetime(premier24['Date'], format='%d/%m/%y')
 
