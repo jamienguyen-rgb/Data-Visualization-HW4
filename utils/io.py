@@ -42,11 +42,10 @@ def load_data() -> pd.DataFrame:
 
         team_23['season'] = '2023-2024'
         team_24['season']= '2024-2025'
-        return team_23, team_24
-        
         team_23 = points(premier23, '2023-2024')
         team_24 = points(premier24, '2024-2025')
         both_seasons = pd.concat([team_23, team_24]).reset_index(drop=True)
+        return both_seasons
         
     def wins(df, season_name):
         premier23['date'] = pd.to_datetime(premier23['Date'], format='%d/%m/%y')
@@ -83,9 +82,9 @@ def load_data() -> pd.DataFrame:
         matches24['week'] = matches24['date'].dt.isocalendar().week
         matches24 = (matches24.groupby(['season','team', 'week'], as_index=False
                                       ).agg(win=('win', 'sum')))
-        return matches23, matches24
-
         wins_by_date = pd.concat([matches23, matches24]).reset_index(drop=True)
         wins_by_date['cumulative wins'] = (wins_by_date.groupby(['season', 'team'])['win'].cumsum())
+        return wins_by_date, matches24
+
         
-    return both_seasons, wins_by_date
+    return both_seasons, wins_by_date, matches24
