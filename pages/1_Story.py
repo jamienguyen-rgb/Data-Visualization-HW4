@@ -1,6 +1,6 @@
 import streamlit as st
 import altair as alt
-from utils.io import load_data
+from utils.io import (load_points, load_wins)
 from charts.charts import (
     base_theme,
     point_diff_chart,
