@@ -85,6 +85,7 @@ def load_data() -> pd.DataFrame:
                                       ).agg(win=('win', 'sum')))
        
         return matches24
+        matches23 = wins(premier23, '2023-2024')
         matches24 = wins(premier24, '2024-2025')
         wins_by_date = pd.concat([matches23, matches24]).reset_index(drop=True)
         wins_by_date['cumulative wins'] = wins_by_date.groupby(['season', 'team'])['win'].cumsum()
