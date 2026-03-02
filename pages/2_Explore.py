@@ -4,7 +4,7 @@ from charts.charts import dashboard
 
 st.set_page_config(page_title="Explore", layout="wide")
 points_df = load_points()
-win_df = load_wins()
+wins_df = load_wins()
 
 st.title("Interactive Exploratory View")
 st.write("Use interaction to validate and extend the story—select one team, then see their performance over each season.")
