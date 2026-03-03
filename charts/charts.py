@@ -82,7 +82,7 @@ def wins_line_promoted(df: pd.DataFrame) -> alt.Chart:
             color='group:N',
             tooltip=[
                 alt.Tooltip('average_cumulative_wins:Q', title = 'average cumulative wins')]
-        ).properties(title='Weekly Wins for Promoted vs Non-Promoted Teams (2024-2025)')
+        ).properties(title='Average Cumulative Weekly Wins for Promoted vs Non-Promoted Teams (2024-2025)')
     )
 
 def points_line(df: pd.DataFrame) -> alt.Chart:
