@@ -76,7 +76,8 @@ def wins_line_promoted(df: pd.DataFrame) -> alt.Chart:
     grouped_promoted = (promoted_df.groupby(
         ['group', 'week'], as_index=False).agg(average_cumulative_wins=('cumulative wins', 'mean')))
     return (
-        alt.Chart(grouped_promoted).mark_line().encode(
+        alt.Chart(grouped_promoted)
+        .mark_line().encode(
             x='week:O',
             y=alt.Y('average_cumulative_wins:Q', title = 'average cumulative wins'),
             color='group:N',
@@ -89,8 +90,8 @@ def points_line(df: pd.DataFrame) -> alt.Chart:
     point_differences = df.pivot(
         index='team', columns='season', values='points').reset_index().dropna()
     return (
-        alt.Chart(point_differences
-         ).mark_circle(size=100).encode(
+        alt.Chart(point_differences)
+        .mark_circle(size=100).encode(
             x=alt.X('2023-2024:Q', title='Points in 2023-2024'),
             y=alt.Y('2024-2025:Q', title='Points in 2024-2025'),
             tooltip=[
